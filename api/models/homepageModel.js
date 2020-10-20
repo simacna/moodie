@@ -9,7 +9,7 @@ const MainMood = new Schema({
   },
   timeOfDay: {
     type: Date,
-    required: 'what time of dayo you writing this'
+    default: Date.now
   },
   text: {
     type: String,

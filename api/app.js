@@ -4,9 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
-var indexRouter = require('./routes/index');
+var indexRouter = require('./routes/routes');
 var app = express();
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -32,11 +33,14 @@ app.use(function(req, res, next) {
 
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/db', {
+mongoose.connect('mongodb://localhost/moodydb', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
 
+//bodyparer setup
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 // error handler
 
 
