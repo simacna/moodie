@@ -8,7 +8,8 @@ const getAllEntries = (req, res) => {
     if(err){
       res.send(err);
     } else{
-      res.json(post);
+      console.log("getAllEntries");
+      res.send(post);
     }
   })
 }
@@ -20,7 +21,7 @@ const addNewEntry = (req, res) => {
       res.send(err);
     } else{
       console.log("error inside addNewEntry");
-      
+
       res.json(entry); 
     }
   }) //this'll save it and tell us what happened
