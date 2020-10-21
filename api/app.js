@@ -22,8 +22,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 const PORT = 4000;
-// app.use('/', routes);
-routes(app);
+app.use('/', routes);
+// routes(app);
 
 
 // app.use('/users', usersRouter);
@@ -36,7 +36,7 @@ app.use(function(req, res, next) {
 
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/moodydb', {
+mongoose.connect('mongodb://localhost:27107/moodie', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });

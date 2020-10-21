@@ -19,6 +19,8 @@ const addNewEntry = (req, res) => {
     if(err){
       res.send(err);
     } else{
+      console.log("error inside addNewEntry");
+      
       res.json(entry); 
     }
   }) //this'll save it and tell us what happened

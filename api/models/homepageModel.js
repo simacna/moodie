@@ -20,5 +20,7 @@ const MainMood = new Schema({
     default: Date.now //date when data created in db
   }
 });
-
+console.log(' we in the model?');
 module.exports = MainMood;
+
+

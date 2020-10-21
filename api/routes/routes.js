@@ -4,21 +4,36 @@ const controllerMethods = require('../controllers/mainMoodController');
 // let app = express();
 
 
-const routes = (app) => {
-  app.route('/')
-    .get((req, res, next) => {
-      console.log(`req from ${req}`);
-      next();
-    }, controllerMethods.getAllEntries)
+// const routes = (app) => {
+//   app.route('/')
+//     .get((req, res, next) => {
+//       console.log(`req from ${req}`);
+//       next();
+//     }, controllerMethods.getAllEntries)
 
 
-  .post('/', (req, res)=>{
-  console.log("we inside post");
-  controllerMethods.addNewEntry;
-}
+//   // .post('/', (req, res)=>{
+//   // console.log("we inside post");
+//   // controllerMethods.addNewEntry;
+// // }
 
-}
+// }
 /* GET home page. */
+
+router.get('/', (req, res)=>{
+  console.log(`req from ${req}`);
+  res.send('yolo');
+ 
+});
+
+router.post('/', (req, res, next)=>{
+  console.log('inside router.js router.post');
+  next();
+}, 
+
+controllerMethods.addNewEntry);
+
+
 // router.get('/', (req, res)=>{
 //   console.log(`req from ${req}`);
 //   next();
