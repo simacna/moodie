@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-const MoodSchema = require("../models/homepageModel");
+const MainMood = require("../models/homepageModel");
 
-const Contact = mongoose.model('Mood', MoodSchema);
+const Contact = mongoose.model('Mood', MainMood);
 
 const getAllEntries = (req, res) => {
   Contact.find({}, (err, post) => {
@@ -25,3 +25,4 @@ const addNewEntry = (req, res) => {
 }
 
 module.exports.addNewEntry = addNewEntry;
+module.exports.getAllEntries = getAllEntries;

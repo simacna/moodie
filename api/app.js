@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
-var indexRouter = require('./routes/routes');
+var routes = require('./routes/routes');
 var app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -22,7 +22,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 const PORT = 4000;
-app.use('/', indexRouter);
+// app.use('/', routes);
+routes(app);
+
+
 // app.use('/users', usersRouter);
 // app.use('/testAPI', testAPIRouter);
 // app.use('/quotes', quotes);
