@@ -20,11 +20,13 @@ const controllerMethods = require('../controllers/mainMoodController');
 // }
 /* GET home page. */
 
-router.get('/', (req, res)=>{
+router.get('/', (req, res, next)=>{
   console.log(`req from ${req}`);
-  res.send('yolo');
+  // res.send('yolo');
+  next()
  
-});
+},
+controllerMethods.getAllEntries);
 
 router.post('/', (req, res, next)=>{
   console.log('inside router.js router.post');

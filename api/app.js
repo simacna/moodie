@@ -36,7 +36,7 @@ app.use(function(req, res, next) {
 
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27107/moodie', {
+mongoose.connect('mongodb://localhost/moodydb', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -50,5 +50,7 @@ app.use(bodyParser.json());
 app.listen(PORT, () =>{
   console.log("app.listen");
 })
+
+console.log("mongoose connection status: ", mongoose.connection.readyState);
 
 module.exports = app;

@@ -4,6 +4,8 @@ const MainMood = require("../models/homepageModel");
 const Contact = mongoose.model('Mood', MainMood);
 
 const getAllEntries = (req, res) => {
+  // console.log("getAllEntries");
+  // res.send('aloha');
   Contact.find({}, (err, post) => {
     if(err){
       res.send(err);
