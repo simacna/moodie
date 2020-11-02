@@ -1,5 +1,8 @@
-let express = require('express');
-var router = express.Router();
+const express = require('express');
+const cors = require('cors');
+var app = express();
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 const controllerMethods = require('../controllers/mainMoodController');
 // let app = express();
 
@@ -20,20 +23,19 @@ const controllerMethods = require('../controllers/mainMoodController');
 // }
 /* GET home page. */
 
-router.get('/', (req, res, next)=>{
-  console.log(`req from ${req}`);
+app.get('/', (req, res, next)=>{
+  console.log(`app.get`);
   // res.send('yolo');
-  next()
+  next();
  
-},
-controllerMethods.getAllEntries);
+// });
+} ,controllerMethods.getAllEntries);
 
-router.post('/', (req, res, next)=>{
+app.post('/', (req, res, next)=>{
   console.log('inside router.js router.post');
   next();
-}, 
-
-controllerMethods.addNewEntry);
+}
+, controllerMethods.addNewEntry);
 
 
 // router.get('/', (req, res)=>{
@@ -46,7 +48,8 @@ controllerMethods.addNewEntry);
 //   controllerMethods.addNewEntry;
 // });
 
+
 // router.post(controllerMethods.addNewEntry);
 
 // app.use()
-module.exports = router;
+module.exports = app;
