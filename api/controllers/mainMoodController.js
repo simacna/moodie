@@ -17,7 +17,7 @@ const getAllEntries = (req, res) => {
 }
 const addNewEntry = (req, res) => {
   let newEntry = new Contact(req.body); //passing data coming from contact and saving into db
-  console.log("addNewEntry inside controller");
+  console.log("req", req.body);
   newEntry.save((err, entry) => {
     if(err){
       res.send(err);
