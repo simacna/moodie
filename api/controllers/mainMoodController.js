@@ -26,7 +26,7 @@ const addNewEntry = (req, res) => {
 
       res.json(entry); 
     }
-  }) //this'll save it and tell us what happened
+  }) //this'll save it and tell us what happened/
 }
 
 module.exports.addNewEntry = addNewEntry;
