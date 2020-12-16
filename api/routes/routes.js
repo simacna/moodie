@@ -4,8 +4,6 @@ var app = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 const controllerMethods = require('../controllers/mainMoodController');
-// let app = express();
-
 
 // const routes = (app) => {
 //   app.route('/')
@@ -25,10 +23,7 @@ const controllerMethods = require('../controllers/mainMoodController');
 
 app.get('/', (req, res, next)=>{
   console.log(`app.get`);
-  // res.send('yolo');
   next();
- 
-// });
 } ,controllerMethods.getAllEntries);
 
 app.post('/', (req, res, next)=>{
