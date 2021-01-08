@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'; //useEffect == componentDidMount(api calls go in here)//componentDidUpdate
 import logo from './logo.svg';
 import './App.css';
-// import axios from 'axios';
+import axios from 'axios';
 
 function App() {
 
@@ -19,14 +19,14 @@ console.log("top", cardData);
  console.log(cardData); //cardData.map{jsx}
 
 
- handleInputChange = e => {
-   this.setState({
-     [e.target.name]: e.target.value,
-   })
- }
+//  handleInputChange = e => {
+//    this.setState({
+//      [e.target.name]: e.target.value,
+//    })
+//  }
 
- handleSubmit = e => {
-   e.preventDefault();
+//  handleSubmit = e => {
+//    e.preventDefault();
 
   // const post = {
 
@@ -34,7 +34,7 @@ console.log("top", cardData);
 
   //  axios
   //   .post('http://localhost:4000/addNewEntry', post)
- }
+//  }
   return (
 
     <div className="App">
