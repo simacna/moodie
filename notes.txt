@@ -1,0 +1,7 @@
+2.4.21
+
+q1. why in App.js, there's no render() {
+  return
+}
+
+a1. cuz it's a functional component, yo

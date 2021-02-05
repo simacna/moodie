@@ -19,6 +19,7 @@ const [cardData, setCardData] = useState(null); //you pass initial state into us
  }, []
  ) //props or state. empty [] for side effect to happen only 1x
 //  console.log(cardData); //cardData.map{jsx}
+console.log(typeof(cardData));
 useEffect(()=>{
   const promise = axios.post(apiEndpoint);
   // console.log("promise.data", promise.data);
@@ -41,6 +42,7 @@ useEffect(()=>{
 
     // console.log("promise.data", promise.data);
   }
+  
   return (
 
     <div className="App">
