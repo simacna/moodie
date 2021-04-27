@@ -1,5 +1,4 @@
 import {useEffect, useState} from 'react'; //useEffect == componentDidMount(api calls go in here)//componentDidUpdate
-import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 
@@ -19,7 +18,7 @@ const [cardData, setCardData] = useState(null); //you pass initial state into us
  }, []
  ) //props or state. empty [] for side effect to happen only 1x
 //  console.log(cardData); //cardData.map{jsx}
-console.log(typeof(cardData));
+// console.log(typeof(cardData));
 useEffect(()=>{
   const promise = axios.post(apiEndpoint);
   // console.log("promise.data", promise.data);
@@ -36,11 +35,11 @@ useEffect(()=>{
     // e.preventDefault();
     console.log("top inside handleSubmit");
 
-    // const promise = axios.post(apiEndpoint, {
-    //   message: this.state.message
-    // });
+    const promise = axios.post(apiEndpoint, {
+      message: this.state.message
+    });
 
-    // console.log("promise.data", promise.data);
+    console.log("promise.data", promise.data);
   }
   
   return (
