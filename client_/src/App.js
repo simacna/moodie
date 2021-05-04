@@ -43,9 +43,7 @@ useEffect(()=>{
   }
   
   return (
-
-    <div className="App">
-      
+    <div className="App">  
         <p>hey lil moodie ~</p>
       <form>
         <label>
@@ -60,7 +58,7 @@ useEffect(()=>{
           <option value="anger">anger</option>
           <option value="surprise">surprise</option>
         </select>
-        <input type="submit" value="Submit" onClick={handleSubmit}/>
+        <input type="submit" value="Submit" onClick={e => setCardData(e.target)}/>
       </form>
     </div>
   );
