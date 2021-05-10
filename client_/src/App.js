@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'; //useEffect == componentDidMount(api calls go in here)//componentDidUpdate
 import './App.css';
 import axios from 'axios';
+import prop from 'prop-types';
 
 const apiEndpoint = 'http://localhost:4000/';
 
