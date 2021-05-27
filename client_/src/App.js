@@ -9,9 +9,10 @@ function App() {
 
 const [cardData, setCardData] = useState(null); //you pass initial state into useState. useState is returning tuple of array w 2 values, reactive state and setter
 //similar to this.state.cardData and this.setState ^
+// console.log('card data', cardData);
 
-// console.log("top", cardData);
- useEffect(()=> { //componentDidMount
+console.log("top", cardData);
+ useEffect(()=> { //componentDidMount. runs on every render
    fetch('http://localhost:4000/')
    .then(response => response.json())
   .then(data => setCardData(data)); //setCardData now runs whatever you pass to it
@@ -20,7 +21,7 @@ const [cardData, setCardData] = useState(null); //you pass initial state into us
  ) //props or state. empty [] for side effect to happen only 1x
 //  console.log(cardData); //cardData.map{jsx}
 // console.log(typeof(cardData));
-useEffect(()=>{
+useEffect(()=>{ 
   const promise = axios.post(apiEndpoint);
   // console.log("promise.data", promise.data);
 },[]
@@ -59,7 +60,7 @@ useEffect(()=>{
           <option value="anger">anger</option>
           <option value="surprise">surprise</option>
         </select>
-        <input type="submit" value="Submit" onClick={e => setCardData(e.target)}/>
+        <input type="submit" value="Submit" />
       </form>
     </div>
   );
