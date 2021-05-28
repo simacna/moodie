@@ -14,7 +14,9 @@ const [cardData, setCardData] = useState(null); //you pass initial state into us
 console.log("top", cardData);
  useEffect(()=> { //componentDidMount. runs on every render
    fetch('http://localhost:4000/')
+   
    .then(response => response.json())
+  //  .then(console.log("response", response)) this throw response not defined, why
   .then(data => setCardData(data)); //setCardData now runs whatever you pass to it
    
  }, []
@@ -23,7 +25,7 @@ console.log("top", cardData);
 // console.log(typeof(cardData));
 useEffect(()=>{ 
   const promise = axios.post(apiEndpoint);
-  // console.log("promise.data", promise.data);
+  console.log("promise.data", promise);
 },[]
 );
 
@@ -47,7 +49,7 @@ useEffect(()=>{
   return (
     <div className="App">  
         <p>hey lil moodie ~</p>
-      <form>
+      <form method="post" onSubmit = {}>  
         <label>
           Name:
           <input type="text"  />
@@ -60,7 +62,7 @@ useEffect(()=>{
           <option value="anger">anger</option>
           <option value="surprise">surprise</option>
         </select>
-        <input type="submit" value="Submit" />
+        {/* <input type="submit" value="Submit" /> */}
       </form>
     </div>
   );
