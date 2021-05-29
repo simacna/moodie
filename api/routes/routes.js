@@ -27,7 +27,7 @@ app.get('/', (req, res, next)=>{
 } ,controllerMethods.getAllEntries);
 
 app.post('/', (req, res, next)=>{
-  console.log('inside router.js router.post');
+  console.log('ROUTES.JS inside router.js router.post');
   next();
 }
 , controllerMethods.addNewEntry);

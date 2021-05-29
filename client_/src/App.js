@@ -23,36 +23,39 @@ console.log("top", cardData);
  ) //props or state. empty [] for side effect to happen only 1x
 //  console.log(cardData); //cardData.map{jsx}
 // console.log(typeof(cardData));
-useEffect(()=>{ 
-  const promise = axios.post(apiEndpoint);
-  console.log("promise.data", promise);
-},[]
-);
+// useEffect(()=>{ 
+//   const promise = axios.post(apiEndpoint);
+//   console.log("promise.data", promise);
+// },[]
+// );
 
 //  handleInputChange = e => {
 //    this.setState({
 //      [e.target.name]: e.target.value,
 //    })
 //  }
+const handleChange = e => {
+  console.log("handleChange", e);
+  setCardData(e.target.value);
+}
 
-  const handleSubmit = (e) => {
-    // e.preventDefault();
-    console.log("top inside handleSubmit");
+const handleSubmit = (e) => {
+  e.preventDefault();
+  console.log("top inside handleSubmit");
 
-    const promise = axios.post(apiEndpoint, {
-      message: this.state.message
-    });
+  axios.post(apiEndpoint, {
+    message: cardData
+  });
 
-    console.log("promise.data", promise.data);
   }
   
   return (
     <div className="App">  
         <p>hey lil moodie ~</p>
-      <form method="post" onSubmit = {}>  
+      <form method="post" onSubmit = {handleSubmit}>  
         <label>
           Name:
-          <input type="text"  />
+          <input type="text"  onChange={handleChange}/>
         </label>
         <select>
           <option value="happy">happy</option>
@@ -62,7 +65,7 @@ useEffect(()=>{
           <option value="anger">anger</option>
           <option value="surprise">surprise</option>
         </select>
-        {/* <input type="submit" value="Submit" /> */}
+        <input type="submit" value="Submit" />
       </form>
     </div>
   );
