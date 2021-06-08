@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react'; //useEffect == componentDidMount(api 
 import './App.css';
 import axios from 'axios';
 import prop from 'prop-types';
+// import { STATES } from 'mongoose';
 
 const apiEndpoint = 'http://localhost:4000/';
 
@@ -25,7 +26,7 @@ console.log("top", cardData);
 // console.log(typeof(cardData));
 // useEffect(()=>{ 
 //   const promise = axios.post(apiEndpoint);
-//   console.log("promise.data", promise);
+//   console.log("promise.d   ata", promise);
 // },[]
 // );
 
@@ -41,13 +42,21 @@ const handleChange = e => {
 
 const handleSubmit = (e) => {
   e.preventDefault();
-  console.log("top inside handleSubmit");
+  console.log("event", e);
 
   axios.post(apiEndpoint, {
-    message: cardData
+    message: cardData,
+    text: e.target[0].value,
+  primaryMood: e.target[1].value
+  })
+  .then((response) =>{
+    console.log(response);
+  }, (error) => {
+    console.log(error);
   });
 
   }
+
   
   return (
     <div className="App">  
@@ -57,7 +66,7 @@ const handleSubmit = (e) => {
           Name:
           <input type="text"  onChange={handleChange}/>
         </label>
-        <select>
+        <select value="primaryMood">
           <option value="happy">happy</option>
           <option value="sad">sad</option>
           <option value="fear">fear</option>

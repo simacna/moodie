@@ -36,6 +36,7 @@ app.use(function(req, res, next) {
 
 
 mongoose.Promise = global.Promise;
+console.log("above mongodb connect");
 mongoose.connect('mongodb://localhost/moodydb', {
   useNewUrlParser: true,
   useUnifiedTopology: true
